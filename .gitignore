@@ -360,3 +360,8 @@ pymnn_build/
 
 # mnncompress generated
 MNN_compression_pb2.py
+
+/cmake-build-*/
+!/project/hmos/build/
+/project/hmos/build/*
+!/project/hmos/build/build.sh

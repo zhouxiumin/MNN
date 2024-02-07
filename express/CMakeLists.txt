@@ -27,7 +27,10 @@ IF(MNN_SEP_BUILD)
     else()
         add_library(MNN_Express SHARED ${MNN_EXPR_SRCS})
     endif()
-    target_link_libraries(MNN_Express MNN ${EXTRA_LIBS})
+    target_link_libraries(MNN_Express ${EXTRA_LIBS})
+    target_link_libraries(MNN_Express PRIVATE MNN)
+    target_link_directories(MNN_Express PUBLIC ${CMAKE_BINARY_DIR}/)
+    set_target_properties(MNN_Express PROPERTIES LINK_FLAGS "-Wl,-rpath,$ORIGIN")
     install(TARGETS MNN_Express
         LIBRARY DESTINATION lib
         ARCHIVE DESTINATION lib
